@@ -14,9 +14,14 @@ void setup(){
 }
 
 void loop(){
-  spinRight(2000);
-  spinLeft(2000);
+  spinRight(30);
   delay(100);
+  turnRight(30);
+  delay(100);
+  turnLeft(30);
+  delay(100);
+  spinLeft(30);
+  delay(10000);
 }
 
 void turnRight(int multiple){
