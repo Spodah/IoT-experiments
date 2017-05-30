@@ -1,4 +1,4 @@
-// servo1 has metal screw, servo2 plastic
+// servo1 has a screw, servo2 currently doesn't. Mark them with tape?
 
 int servo1pin = 7;
 int servo1left = 1550;
