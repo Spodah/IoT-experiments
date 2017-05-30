@@ -1,35 +1,60 @@
-int turnerpin = 7;
-int servo1right = 1800;
-int servo1left = 550;
+// servo1 has metal screw, servo2 plastic
+
+int servo1pin = 7;
+int servo1left = 1550;
+int servo1right = 700;
+int servo2pin = 8;
+int servo2left = 1850;
+int servo2right = 500;
 
 void setup(){
   Serial.begin(115200);
-  pinMode(turnerpin, OUTPUT);
+  pinMode(servo1pin, OUTPUT);
+  pinMode(servo2pin, OUTPUT);
 }
 
 void loop(){
-  turnRight();
-  turnLeft();
+  spinRight(2000);
+  spinLeft(2000);
+  delay(100);
 }
 
-void turnRight(){
-  int multiple = 2000;
+void turnRight(int multiple){
   for(int i=0; i<multiple; i++){
-    digitalWrite(turnerpin, HIGH);
+    digitalWrite(servo1pin, HIGH);
     delayMicroseconds(servo1right);
-    digitalWrite(turnerpin, LOW);
+    digitalWrite(servo1pin, LOW);
     delayMicroseconds(20000-servo1right);
   }
   Serial.println("right");
 }
 
-void turnLeft(){
-  int multiple = 2000;
+void turnLeft(int multiple){
   for(int i=0; i<multiple; i++){
-    digitalWrite(turnerpin, HIGH);
+    digitalWrite(servo1pin, HIGH);
     delayMicroseconds(servo1left);
-    digitalWrite(turnerpin, LOW);
+    digitalWrite(servo1pin, LOW);
     delayMicroseconds(20000-servo1left);
   }
   Serial.println("left");
+}
+
+void spinRight(int multiple){
+  for(int i=0; i<multiple; i++){
+    digitalWrite(servo2pin, HIGH);
+    delayMicroseconds(servo2right);
+    digitalWrite(servo2pin, LOW);
+    delayMicroseconds(20000-servo2right);
+  }
+  Serial.println("spinright");
+}
+
+void spinLeft(int multiple){
+  for(int i=0; i<multiple; i++){
+    digitalWrite(servo2pin, HIGH);
+    delayMicroseconds(servo2left);
+    digitalWrite(servo2pin, LOW);
+    delayMicroseconds(20000-servo2left);
+  }
+  Serial.println("spinleft");
 }
