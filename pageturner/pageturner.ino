@@ -1,4 +1,5 @@
-// servo1 has a screw, servo2 currently doesn't. Mark them with tape?
+// servo1 controls the arm to push the page up. servo2 controls the arm to catch and flip the page.
+// servo1 is connected to digital pin 7 and servo2 to digital pin 8. Both of them are additionally connected to 5V power and ground pins.
 
 int servo1pin = 7;
 int servo1left = 1550;
