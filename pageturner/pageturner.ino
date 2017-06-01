@@ -7,6 +7,7 @@ int servo1right = 700;
 int servo2pin = 8;
 int servo2left = 1850;
 int servo2right = 500;
+int turncycles = 60;
 
 void setup(){
   Serial.begin(115200);
@@ -17,17 +18,17 @@ void setup(){
 void loop(){
 
   delay(1000);
-  turnLeft(60);
+  turnLeft();
   delay(100);
-  spinLeft(60); 
+  spinLeft(); 
   delay(100); 
-  spinRight(60);
+  spinRight();
   delay(100);
-  turnRight(60);
+  turnRight();
 }
 
-void turnRight(int multiple){
-  for(int i=0; i<multiple; i++){
+void turnRight(){
+  for(int i=0; i<turncycles; i++){
     digitalWrite(servo1pin, HIGH);
     delayMicroseconds(servo1right);
     digitalWrite(servo1pin, LOW);
@@ -36,8 +37,8 @@ void turnRight(int multiple){
   Serial.println("right");
 }
 
-void turnLeft(int multiple){
-  for(int i=0; i<multiple; i++){
+void turnLeft(){
+  for(int i=0; i<turncycles; i++){
     digitalWrite(servo1pin, HIGH);
     delayMicroseconds(servo1left);
     digitalWrite(servo1pin, LOW);
@@ -46,8 +47,8 @@ void turnLeft(int multiple){
   Serial.println("left");
 }
 
-void spinRight(int multiple){
-  for(int i=0; i<multiple; i++){
+void spinRight(){
+  for(int i=0; i<turncycles; i++){
     digitalWrite(servo2pin, HIGH);
     delayMicroseconds(servo2right);
     digitalWrite(servo2pin, LOW);
@@ -56,8 +57,8 @@ void spinRight(int multiple){
   Serial.println("spinright");
 }
 
-void spinLeft(int multiple){
-  for(int i=0; i<multiple; i++){
+void spinLeft(){
+  for(int i=0; i<turncycles; i++){
     digitalWrite(servo2pin, HIGH);
     delayMicroseconds(servo2left);
     digitalWrite(servo2pin, LOW);
